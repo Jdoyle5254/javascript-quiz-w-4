@@ -1,64 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="Description" content="Enter your description here"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
-<link rel="stylesheet" href="style.css">
-<title>JavaScript Quiz</title>
-</head>
-<body>
-    <h1>Test your JavaScript Knowlege</h1>
-     
-  <div><class="container">
-      <div class = "row"> 
-        <div class ="col-8">  
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas</p>
-        <div class="user-options" >
-          <div>
-          <input type="radio" id="option-a" name="answer" value="huey">
-          <label for="huey">Huey</label>
-        </div>
-        
-        <div>
-          <input type="radio" id="obtion-b" name="drone" value="dewey">
-          <label for="dewey">Dewey</label>
-        </div>
-        
-        <div>
-          <input type="radio" id="obtion c" name="drone" value="option c">
-          <label for="louie">"#option c</label>
-        </div> 
-          <div class="correct" > 
-          <div class="incorrect" > 
 
-      <button id="previous">Previous Question</button>
-      <button id="next">Next Question</button>  
-      </div>    
-      </div> 
-      
-      
-    
-     
-      <div class="col-sm-4">
-             
-            <label>
-                Time remaining:
-                <span class="time-remaining"></span>
-              </label>
-                <p class="user-score"> Score:</p>
-                <button class= "start" type="button" class="btn btn-success-lg">Start Quiz</button>
-              </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="Enter your description here" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
+  <title>JavaScript Quiz</title>
+</head>
+
+<body>
+  <h1>Test your JavaScript Knowlege</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <p class= "questions"> Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas</p>
+        <div class="user-options">
+          <div>
+            <button class= "optionA  answerbtn"> </button>
+          </div>
+          <div class="correct">
+            <div class="incorrect">
+              <button id="previous">Previous Question</button>
+              <button id="next">Next Question</button>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <label>
+          Time remaining:
+          <span class="time-remaining"></span>
+        </label>
+        <p class="user-score"> Score:</p>
+        <button class="start" type="button" class="btn btn-success-lg">Start Quiz</button>
+      </div>
     </div>
-     
-    
- <footer></footer>   
- <script> src= "script.js" </script>
+  </div>
+  <footer></footer>
+  <script src="./script.js"></script>
 
 </body>
+
 </html>

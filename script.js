@@ -24,80 +24,70 @@
 // questions
 // timer
 // score tracker 
-var quizQuestions = document.querySelector("questions")
-var quizSelections = document.querySelector("user-options")
-var totalScore = document.querySelector("user-score")
-var correctAnswer = document.querySelector("correct")
-var correctAnswer = document.querySelector("incorrect")
-var startButton = document.querySelector("start")
-var timeRemainingSection = document.querySelector("time-remaining")
+var quizQuestions = document.querySelector(".questions")
+var quizSelections = document.querySelector(".user-options")
+var totalScore = document.querySelector(".user-score")
+var correctAnswer = document.querySelector(".correct")
+var correctAnswer = document.querySelector(".incorrect")
+var startButton = document.querySelector(".start")
+var timeRemainingSection = document.querySelector(".time-remaining")
+var answerOptionA = document.querySelector(".optionA")
+var answerbtns = document.querySelectorAll(".answerbtn")
 
 // create a function to run the questions
-var questions = [];
-questions {
-    question:   "What is a script?";
-    optionAnswers:  "a. a series of instructions" "b. words on the screen" "c. xxxxx"; 
-    answer:  "a"; 
-}
-questions {
-    question:  "What does 'concat' mean in JavaScript?";  
-    optionAnswers:  "a. mix a cocktail",  "b. to subtract",   "c. to put together";  
-    answer: "c";  
-}
-questions {
-    question: "What answer would you expect when using .length? "   
-    optionAnswers:  "a. the distance between 2 points", "b. the number of elements in an array", "c. how long the code on the page is";
-    answer:  "b";
-}
-questions {
-    question:    Loops
-    optionAnswers:   
-    answer:   
-}
-questions {
-    question:    functions
-    optionAnswers:   
-    answer:   
-}
-questions {
-    question:   syntax 
-    optionAnswers:   
-    answer:   
-}
-questions {
-    question:    objects
-    optionAnswers:   
-    answer:   
-}
-questions {
-    question:    arrays 
-    optionAnswers:   
-    answer:   
-}
-questions {
-    question:    arrays 
-    optionAnswers:   
-    answer:   
-}
-questions {
-    question:    arrays 
-    optionAnswers:   
-    answer:   
-}
-questions {
-    question:    arrays 
-    optionAnswers:   
-    answer:   
-}
-questions {
-    question:    arrays 
-    optionAnswers:   
-    answer:   
-}
+var questions = [{
+    question:   "What is a script?",
+    optionAnswers: ["a. a series of instructions", "b. words on the screen", "c. xxxxx"],
+    answer:  0
+},
+ {
+    question:  "What does 'concat' mean in JavaScript?",  
+    optionAnswers:  ["a. mix a cocktail",  "b. to subtract",   "c. to put together"],  
+    answer: 2  
+}, {
+    question: "What answer would you expect when using .length? ",  
+    optionAnswers:  ["a. the distance between 2 points", "b. the number of elements in an array", "c. how long the code on the page is"],
+    answer:  1
+}]
+
 
  function quiz () {
-     var quizQuestions = questions []
+
  }
+    // when user clicks start button timer appears done
+    function startTimer() {
+        var secondsRemaining = 60    
+        
+        var timerInterval = setInterval(function(){
+            secondsRemaining --; 
+            timeRemainingSection.textContent = secondsRemaining;
+       
+            if (secondsRemaining === 0) {
+               clearInterval(timerInterval)   
+            }
+     }, 1000)
+      // question 1 pops up 
+     showQuestion()
+    }
+    
+    function showQuestion () {
+        var p = questions[0]
+        quizQuestions.textContent = p.question 
+        answerOptionA.textContent = p.optionAnswers[0]
+        // need 2 more option buttons B & C correspond to [1 &2]
+    } 
+    function userResponse () {
+        console.log(this.answerbtn.value)
+    }
+    startButton.addEventListener('click', startTimer)
+    answerbtns.addEventListener('click', userResponse)
+    // user selects answer
+    // page alerts correct or incorrect
+    // if correct add to score 
+    // if incorrect add to timer 
+    // next question appears on screen, etal.
+    // user completes quiz or time runs out 
+
 
 // not positive on this code just yet
 var score = 0;
@@ -120,25 +110,10 @@ var score = 0;
 
 
 
-// Timer Code
 
-function startTimer() {
-    var timeRemaining = 600   
-    
-    var timerInterval = setInterval(function(){
-        secondsRemaining --; 
-        timeRemainingSection.textContent = timeRemaining;
-   
-        if (secondsRemaining === 0) {
-           clearInterval(timerInterval);   
-        else {
-            timeRemainingSection.textContent = "Time Remaiining" + timeRemaining; 
-        }   
-        }
- }, 1000)
 
-}
-startButton.addEventListener('click', startTimer)
+
+
 // // Timer Code
 // var timer = 10
 // var startButton = document.querySelector('.start')
