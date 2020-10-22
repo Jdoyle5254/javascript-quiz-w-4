@@ -32,28 +32,71 @@ var correctAnswer = document.querySelector(".incorrect")
 var startButton = document.querySelector(".start")
 var timeRemainingSection = document.querySelector(".time-remaining")
 var answerOptionA = document.querySelector(".optionA")
-var answerbtns = document.querySelectorAll(".answerbtn")
+var answerOptionB = document.querySelector(".optionB")
+var answerOptionC = document.querySelector(".optionC")
+var answerBtns = document.querySelectorAll(".answerbtn")
 
 // create a function to run the questions
 var questions = [{
-    question:   "What is a script?",
-    optionAnswers: ["a. a series of instructions", "b. words on the screen", "c. xxxxx"],
+    question:   "What is a script refer to in JavaScript?",
+    optionAnswers: ["a. a series of instructions", "b. words on the screen", "c. dialogue for the browser"],
     answer:  0
 },
  {
     question:  "What does 'concat' mean in JavaScript?",  
     optionAnswers:  ["a. mix a cocktail",  "b. to subtract",   "c. to put together"],  
     answer: 2  
-}, {
-    question: "What answer would you expect when using .length? ",  
-    optionAnswers:  ["a. the distance between 2 points", "b. the number of elements in an array", "c. how long the code on the page is"],
-    answer:  1
-}]
+}, 
+//     {
+//     question: "What answer would you expect when using .length? ",  
+//     optionAnswers:  ["a. the distance between 2 points", "b. the number of elements in an array", "c. how long the code on the page is"],
+//     answer:  1
+    
+// },
+//     {   
+//     question: "To generate a random number between 0 and 1, which MathObject would you use?",
+//     optionAnswers: ["a. Math.Pi", "b. Math.random", "c. Math.ceil"],
+//     answer: 1
+// },
+// {
+//     question: "Which of the following is considered a data type?",
+//     optionAnswers: ["a. alphabet", "b. array", "c. Boolean"],
+//     answer: 2
+// },
+// {
+//     question: "Document Object Model, DOM refers to what",
+//     optionAnswers:  ["a. *NSFW*", "b. information about the browser", "c. the current page"],
+//     answer: 2
+// },
+// {
+//     question:  
+//     optionAnswers:
+//     answer:
+// },{
+//     question:
+//     optionAnswers:
+//     answer:
+// },{
+//     question:
+//     optionAnswers:
+//     answer:
+// },
+// {
+//     question:
+//     optionAnswers:
+//     answer:
+// },
+// {
+//     question:
+//     optionAnswers:
+//     answer:
+// },
+]
 
 
- function quiz () {
+//  function quiz () {
 
- }
+//  }
     // when user clicks start button timer appears done
     function startTimer() {
         var secondsRemaining = 60    
@@ -70,18 +113,33 @@ var questions = [{
      showQuestion()
     }
     
-    function showQuestion () {
+    function showQuestion() {
         var p = questions[0]
         quizQuestions.textContent = p.question 
         answerOptionA.textContent = p.optionAnswers[0]
-        // need 2 more option buttons B & C correspond to [1 &2]
+        answerOptionB.textContent = p.optionAnswers[1]
+        answerOptionC.textContent = p.optionAnswers[2]
+        // // need 2 more option buttons B & C correspond to [1 &2]
+        // quizSelection.append(answerOptionA)
+        // quizSelection.append(answerOptionB)
+        // quizSelection.append(answerOptionC)
     } 
+     // user selects answer
     function userResponse () {
-        console.log(this.answerbtn.value)
+        console.log(this.value)
+
+
+        // ? validated in the console and then triggers correct or incorrect and the if else actions and advancing to next question.
     }
+
     startButton.addEventListener('click', startTimer)
-    answerbtns.addEventListener('click', userResponse)
-    // user selects answer
+    
+    for (var i = 0; i < answerBtns.length; i++)  {
+        answerBtns[i].addEventListener('click', userResponse)
+    }
+
+    
+ 
     // page alerts correct or incorrect
     // if correct add to score 
     // if incorrect add to timer 
@@ -90,7 +148,7 @@ var questions = [{
 
 
 // not positive on this code just yet
-var score = 0;
+// var score = 0;
 //     //   loop to go through questions?
 //         for (var i = 0; i < questions.length; i++) { 
 //             var userAnswer = confirm(questions[i].question); 
@@ -106,37 +164,3 @@ var score = 0;
 //         }
 //        alert("Total Points "  + score);  
 
-
-
-
-
-
-
-
-
-// // Timer Code
-// var timer = 10
-// var startButton = document.querySelector('.start')
-// var timeRemainingSection = document.querySelector('.time-remaining')
-
-
-// function startTimer() {
-//     var timeRemaining =     
-    
-//     var timerInterval = setInterval(function(){
-//         secondsRemaining --; 
-//         timeRemainingSection.textContent = timeRemaining;
-   
-//         if (secondsRemaining === 0) {
-//            clearInterval(timerInterval)   
-//         else {
-//             timeRemainingSection.textContent = "Time Remaiining" + timeRemaining; 
-//         }   
-//         }
-//  }, 1000)
-
-// }
-
-
-
-// startButton.addEventListener('click', startTimer)
