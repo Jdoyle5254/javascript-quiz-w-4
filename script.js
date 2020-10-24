@@ -24,6 +24,8 @@
 // questions
 // timer
 // score tracker 
+
+
 var quizQuestions = document.querySelector(".questions")
 var quizSelections = document.querySelector(".user-options")
 var totalScore = document.querySelector(".user-score")
@@ -34,10 +36,14 @@ var answerOptionA = document.querySelector(".optionA")
 var answerOptionB = document.querySelector(".optionB")
 var answerOptionC = document.querySelector(".optionC")
 var answerBtns = document.querySelectorAll(".answerbtn")
+var finalScore = document.querySelector(".final-score")
+var questArea = document.querySelector("#question-area")
+var gameEnds = document.querySelector("#game-over-area")
 var currentQuest = 0;
 var score = 0; 
+var secondsRemaining = 90; 
 
-// create a function to run the questions
+// array for the questions && answers
 var questions = [{
     question:   "What is a script refer to in JavaScript?",
     optionAnswers: ["a. a series of instructions", "b. words on the screen", "c. dialogue for the browser"],
@@ -48,40 +54,42 @@ var questions = [{
     optionAnswers:  ["a. mix a cocktail",  "b. to subtract",   "c. to put together"],  
     answer: 2  
 }, 
-//     {
-//     question: "What answer would you expect when using .length? ",  
-//     optionAnswers:  ["a. the distance between 2 points", "b. the number of elements in an array", "c. how long the code on the page is"],
-//     answer:  1
+    {
+    question: "What answer would you expect when using .length? ",  
+    optionAnswers:  ["a. the distance between 2 points", "b. the number of elements in an array", "c. how long the code on the page is"],
+    answer:  1
     
-// },
-//     {   
-//     question: "To generate a random number between 0 and 1, which MathObject would you use?",
-//     optionAnswers: ["a. Math.Pi", "b. Math.random", "c. Math.ceil"],
-//     answer: 1
-// },
-// {
-//     question: "Which of the following is considered a data type?",
-//     optionAnswers: ["a. alphabet", "b. array", "c. Boolean"],
-//     answer: 2
-// },
-// {
-//     question: "Document Object Model, DOM refers to what",
-//     optionAnswers:  ["a. *NSFW*", "b. information about the browser", "c. the current page"],
-//     answer: 2
-// },
-// {
-//     question:  "charAt() would refer to what information?",
-//     optionAnswers:["a. returns the charachter at the specified position", "b. the characther on the page", "charred hot dog"],
-//     answer: 0
-// },{
-//     question: "==, !==, >=, < are called what in JavaScript"
-//     optionAnswers: ["a. all the symbols", "operators", "Greek to me"]
-//     answer: 1
-// },{
-//     question: "In a for loop, what are the three condition statements the  loop consists of? ",
-//     optionAnswers: ["a. beginning, guess, Math", "b. Initialization, conidtion, update", "c. start, run, stop"],
-//     answer: 2
-// },
+},
+    {   
+    question: "To generate a random number between 0 and 1, which MathObject would you use?",
+    optionAnswers: ["a. Math.Pi", "b. Math.random", "c. Math.ceil"],
+    answer: 1
+},
+{
+    question: "Which of the following is considered a data type?",
+    optionAnswers: ["a. alphabet", "b. array", "c. Boolean"],
+    answer: 2
+},
+{
+    question: "Document Object Model, DOM refers to what",
+    optionAnswers:  ["a. *NSFW*", "b. information about the browser", "c. the current page"],
+    answer: 2
+},
+{
+    question:  "charAt() would refer to what information?",
+    optionAnswers:["a. returns the charachter at the specified position", "b. the characther on the page", "charred hot dog"],
+    answer: 0
+},
+{
+    question: "==, !==, >=, < are called what in JavaScript",
+    optionAnswers: ["a. all the symbols", "b. operators", "c. Greek to me"],
+    answer: 1
+},
+{
+    question: "In a for loop, what are the three condition statements the  loop consists of? ",
+    optionAnswers: ["a. beginning, guess, Math", "b. Initialization, conidtion, update", "c. start, run, stop"],
+    answer: 2
+},
 // {
 //     question: "",
 //     optionAnswers: [],
@@ -94,19 +102,14 @@ var questions = [{
 // },
 ]
 
-
-//  function quiz () {
-
-//  }
     // when user clicks start button timer appears done
     function startTimer() {
-        var secondsRemaining = 60    
         
         var timerInterval = setInterval(function(){
             secondsRemaining --; 
             timeRemainingSection.textContent = secondsRemaining;
        
-            if (secondsRemaining === 0) {
+            if (secondsRemaining <= 0) {
                clearInterval(timerInterval);   
                gameOver();
             }
@@ -115,6 +118,7 @@ var questions = [{
      showQuestion()
     }
     
+    // this function displays the question and issue. 
     function showQuestion() {
         var p = questions[currentQuest];
         quizQuestions.textContent = p.question; 
@@ -131,31 +135,35 @@ var questions = [{
         // this function is for the user to select the answer the answer is validated and then the user is notified if the answer is correct or not.   it will have code similar to this: var yourpick = $(this).val()
 
                 if (userPick == questions[currentQuest].answer) {
-                     questionResult.textContent = "You are Correct"; 
-                     score++
+                     questionResult.textContent = "You are Correct" ; 
+                     score++; 
+                     totalScore.textContent= score
                   }
                   else {
-                    questionResult.textContent = "Not Quite there yet!"; 
+                    questionResult.textContent = "Not Quite there yet!" ; 
                     secondsRemaining = secondsRemaining - 3;
                   }
                    
-                  setTimeout(nextQuestion, 2000); 
+                  setTimeout(nextQuestion, 1000); 
 
-        // ? validated in the console and then triggers correct or incorrect and the if else actions and advancing to next question.
+        //  validated in the console and then triggers correct or incorrect and the if else actions and advancing to next question.
     }
 
     function nextQuestion() {
-        questionResult.textContent = "";
-        currentQuest++; 
-        showQuestion();
-
+        if (questions.length -1 == currentQuest) {
+            gameOver();
+        }
+        else {
+            questionResult.textContent = "";
+            currentQuest++; 
+            showQuestion();
+        } 
     }
-
+    // this function will run when the time runs out || questions completed
     function gameOver() {
-        setAttribute.hi
-
-
-
+        questArea.setAttribute("class", "hide");
+        finalScore.textContent = score;
+        gameEnds.setAttribute("class", "show");
     }
     // this event starts the entire process the time and the quiz 
     startButton.addEventListener('click', startTimer)

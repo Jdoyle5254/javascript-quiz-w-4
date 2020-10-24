@@ -1,14 +1,20 @@
 
+body {
+    background-color: blanchedalmond;
+}
 h1 {
     padding-bottom: 50px;
 }
 
-h1, h3  {
+h1, h2, h3  {
     font-family:  'Special Elite', cursive;
     color: green;
     text-align: center;
 }
-
+p {
+    font-family:  'Special Elite', cursive;
+    color: black;
+}
 button  {
     font-family:  'Special Elite', cursive;
 
@@ -20,8 +26,21 @@ li {
 
 }
 
+label {
+    font-family:  'Special Elite', cursive;
+    color: black;
+    font-weight: bold;
+}
+
 footer {
     font-family: 'Special Elite', cursive;
+    font-weight: bold;
+    text-align: center;
+    color: salmon;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;   
 }
 
 .hide {
