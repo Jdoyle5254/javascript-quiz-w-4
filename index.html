@@ -8,6 +8,7 @@
   <meta name="Description" content="Enter your description here" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
   <title>JavaScript Quiz</title>
 </head>
@@ -16,20 +17,24 @@
   <h1>Test your JavaScript Knowlege</h1>
   <div class="container">
     <div class="row">
-      <div class="col-8">
-        <p class= "questions"> Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas</p>
-        <div class="user-options">
-          <ul>
-            <li class= "optionA  answerbtn" value="0"> </li>
-            <li class= "optionB  answerbtn" value="1"> </li>
-            <li class= "optionC  answerbtn" value="2"></li>
-          </ul>
-          <div class="correct">
-            <div class="incorrect">
-              <button id="previous">Previous Question</button>
-              <button id="next">Next Question</button>
+      <div class="col-6">
+        <div id="question-area">
+          <h3 class="questions"> To Begin the quiz click the Start Quiz button on the right. Good Luck! </h3>
+          <div class="user-options">
+            <ul>
+              <li class="optionA  answerbtn" value="0"> </li>
+              <li class="optionB  answerbtn" value="1"> </li>
+              <li class="optionC  answerbtn" value="2"></li>
+            </ul>
+            <div class="user-result">
             </div>
           </div>
+        </div>
+        <div id="game-over-area" class="hide">
+          <h2>Game Over!  Thank you for playing</h2>
+          <p>Enter your name and final score!</p>
+          <input type="text" /> 
+          <span class="final-score"> </span>
         </div>
       </div>
       <div class="col-sm-4">
@@ -42,7 +47,7 @@
       </div>
     </div>
   </div>
-  <footer></footer>
+  <footer> Still trying to pass this test! Made by Jen 2020</footer>
   <script src="./script.js"></script>
 
 </body>

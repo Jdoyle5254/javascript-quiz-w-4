@@ -27,14 +27,15 @@
 var quizQuestions = document.querySelector(".questions")
 var quizSelections = document.querySelector(".user-options")
 var totalScore = document.querySelector(".user-score")
-var correctAnswer = document.querySelector(".correct")
-var correctAnswer = document.querySelector(".incorrect")
+var questionResult = document.querySelector(".user-result") 
 var startButton = document.querySelector(".start")
 var timeRemainingSection = document.querySelector(".time-remaining")
 var answerOptionA = document.querySelector(".optionA")
 var answerOptionB = document.querySelector(".optionB")
 var answerOptionC = document.querySelector(".optionC")
 var answerBtns = document.querySelectorAll(".answerbtn")
+var currentQuest = 0;
+var score = 0; 
 
 // create a function to run the questions
 var questions = [{
@@ -69,25 +70,25 @@ var questions = [{
 //     answer: 2
 // },
 // {
-//     question:  
-//     optionAnswers:
-//     answer:
+//     question:  "charAt() would refer to what information?",
+//     optionAnswers:["a. returns the charachter at the specified position", "b. the characther on the page", "charred hot dog"],
+//     answer: 0
 // },{
-//     question:
-//     optionAnswers:
-//     answer:
+//     question: "==, !==, >=, < are called what in JavaScript"
+//     optionAnswers: ["a. all the symbols", "operators", "Greek to me"]
+//     answer: 1
 // },{
-//     question:
-//     optionAnswers:
+//     question: "In a for loop, what are the three condition statements the  loop consists of? ",
+//     optionAnswers: ["a. beginning, guess, Math", "b. Initialization, conidtion, update", "c. start, run, stop"],
+//     answer: 2
+// },
+// {
+//     question: "",
+//     optionAnswers: [],
 //     answer:
 // },
 // {
-//     question:
-//     optionAnswers:
-//     answer:
-// },
-// {
-//     question:
+//     question: "".
 //     optionAnswers:
 //     answer:
 // },
@@ -106,7 +107,8 @@ var questions = [{
             timeRemainingSection.textContent = secondsRemaining;
        
             if (secondsRemaining === 0) {
-               clearInterval(timerInterval)   
+               clearInterval(timerInterval);   
+               gameOver();
             }
      }, 1000)
       // question 1 pops up 
@@ -114,26 +116,51 @@ var questions = [{
     }
     
     function showQuestion() {
-        var p = questions[0]
-        quizQuestions.textContent = p.question 
-        answerOptionA.textContent = p.optionAnswers[0]
-        answerOptionB.textContent = p.optionAnswers[1]
-        answerOptionC.textContent = p.optionAnswers[2]
-        // // need 2 more option buttons B & C correspond to [1 &2]
-        // quizSelection.append(answerOptionA)
-        // quizSelection.append(answerOptionB)
-        // quizSelection.append(answerOptionC)
+        var p = questions[currentQuest];
+        quizQuestions.textContent = p.question; 
+        answerOptionA.textContent = p.optionAnswers[0]; 
+        answerOptionB.textContent = p.optionAnswers[1]; 
+        answerOptionC.textContent = p.optionAnswers[2]; 
+        
     } 
      // user selects answer
     function userResponse () {
         console.log(this.value)
+        var userPick = this.value
+         
+        // this function is for the user to select the answer the answer is validated and then the user is notified if the answer is correct or not.   it will have code similar to this: var yourpick = $(this).val()
 
+                if (userPick == questions[currentQuest].answer) {
+                     questionResult.textContent = "You are Correct"; 
+                     score++
+                  }
+                  else {
+                    questionResult.textContent = "Not Quite there yet!"; 
+                    secondsRemaining = secondsRemaining - 3;
+                  }
+                   
+                  setTimeout(nextQuestion, 2000); 
 
         // ? validated in the console and then triggers correct or incorrect and the if else actions and advancing to next question.
     }
 
+    function nextQuestion() {
+        questionResult.textContent = "";
+        currentQuest++; 
+        showQuestion();
+
+    }
+
+    function gameOver() {
+        setAttribute.hi
+
+
+
+    }
+    // this event starts the entire process the time and the quiz 
     startButton.addEventListener('click', startTimer)
     
+    // this is the click even that is reflecting the users answer choice. 
     for (var i = 0; i < answerBtns.length; i++)  {
         answerBtns[i].addEventListener('click', userResponse)
     }
@@ -147,20 +174,4 @@ var questions = [{
     // user completes quiz or time runs out 
 
 
-// not positive on this code just yet
-// var score = 0;
-//     //   loop to go through questions?
-//         for (var i = 0; i < questions.length; i++) { 
-//             var userAnswer = confirm(questions[i].question); 
-//            
-//             if(questions[i].answer == userAnswer) {
-//                 alert("That's Correct!"); 
-//                 score = score + 1; 
-//             }
-//             else {
-//                 alert ("That's not correct"); 
-//                  }
-//                 
-//         }
-//        alert("Total Points "  + score);  
 

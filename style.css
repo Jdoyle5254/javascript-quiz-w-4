@@ -1,0 +1,35 @@
+
+h1 {
+    padding-bottom: 50px;
+}
+
+h1, h3  {
+    font-family:  'Special Elite', cursive;
+    color: green;
+    text-align: center;
+}
+
+button  {
+    font-family:  'Special Elite', cursive;
+
+}
+
+li {
+    font-family:  'Special Elite', cursive;
+    color: black;
+
+}
+
+footer {
+    font-family: 'Special Elite', cursive;
+}
+
+.hide {
+    display: none; 
+}
+
+
+.show {
+   
+
+}
