@@ -77,7 +77,7 @@ var questions = [{
 },
 {
     question:  "charAt() would refer to what information?",
-    optionAnswers:["a. returns the charachter at the specified position", "b. the characther on the page", "charred hot dog"],
+    optionAnswers:["a. returns the charachter at the specified position", "b. the characther on the page", "c. charred hot dog"],
     answer: 0
 },
 {
