@@ -142,7 +142,7 @@ var questions = [{
                 if (userPick == questions[currentQuest].answer) {
                      questionResult.textContent = "You are Correct" ; 
                      score++; 
-                     totalScore.textContent= score
+                     totalScore.textContent= score;
                   }
                   else {
                     questionResult.textContent = "Not Quite there yet!" ; 
@@ -204,6 +204,7 @@ var questions = [{
             leaderBoard.setAttribute("class", "hide");
 
             timeRemainingSection.textContent = " ";
+            totalScore.innerText = " "; 
             currentQuest = 0; 
             questArea.removeAttribute("class"); 
             quizQuestions.textContent = "To Begin the quiz click the Start Quiz button on the right. Good Luck!"; 
@@ -212,6 +213,7 @@ var questions = [{
             answerOptionC.textContent =  "";
             userName.value = ""; 
             secondsRemaining=30; 
+            score=0;
         }
     // this event starts the entire process the time and the quiz 
     startButton.addEventListener('click', startTimer)
