@@ -14,6 +14,8 @@ To Install locally from Git Hub repository, got to the repository: https://githu
 
 ## Usage
 The game beings by the user clicking 'Start Quiz', this will start the timer.  
+![Main Page](https://user-images.githubusercontent.com/69594945/97110587-fcb4f800-16a7-11eb-8332-c83fb59d6356.PNG)
+
 
 The first question will come up along with a selection of answers. 
 
