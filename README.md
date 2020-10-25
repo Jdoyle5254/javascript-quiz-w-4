@@ -19,15 +19,28 @@ The game beings by the user clicking 'Start Quiz', this will start the timer.
 
 The first question will come up along with a selection of answers. 
 
+![Question and Timer PNG](https://user-images.githubusercontent.com/69594945/97110620-2ec65a00-16a8-11eb-8699-3d51bf20fc9c.PNG)
+
 The user would then click on the answer they feel is best.   
 If the user was correct they will get confirmation and the score will update by one.  
+
+![Correct Answer](https://user-images.githubusercontent.com/69594945/97110627-38e85880-16a8-11eb-8fbc-7cc693bce74e.png)
 
 
 If the user was incorrect the game will confirm it is not correct and time will be 
 taken off the timer.  
+![Incorrect Response ](https://user-images.githubusercontent.com/69594945/97110632-400f6680-16a8-11eb-9966-6e04705c5800.png)
 
 
-Once the user has gone through the questions
+
+Once the user has gone through the questions or the time runs out the game is over and they can input their initials for the leaderboard.
+
+![End of Game ](https://user-images.githubusercontent.com/69594945/97110638-469dde00-16a8-11eb-8366-0cfd5c8bfe10.PNG)
+
+Once the user enters their initials the Leaderboard will appear, and they can start the quiz over if they choose.  
+
+![HighScores final](https://user-images.githubusercontent.com/69594945/97110640-4a316500-16a8-11eb-8dbf-b89181f907d6.PNG)
+
 
 
 ## Credits
