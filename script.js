@@ -179,7 +179,7 @@ var questions = [{
                 score: score,
                 name: name
             };
-            var highScores = [] || JSON.parse(window.localStorage.getItem("highscores"));
+            var highScores = JSON.parse(window.localStorage.getItem("highscores")) || [];
             highScores.push(userScore);
             window.localStorage.setItem("highscores", JSON.stringify(highScores));
 
