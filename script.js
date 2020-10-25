@@ -188,11 +188,13 @@ var questions = [{
            
             var leaderBoard = document.querySelector("#leaderboard-area")
             leaderBoard.removeAttribute("class");
+            
+            var listItem = document.getElementById("users-scores")
+            listItem.innerHTML = "";
 
             highScores.forEach(function(score) {
                 var liTag = document.createElement("li")
                 liTag.textContent = score.name
-                var listItem = document.getElementById("users-scores")
                 listItem.appendChild(liTag)
             })
         }
