@@ -33,10 +33,22 @@
         <div id="game-over-area" class="hide">
           <h2>Game Over! Thank you for playing!</h2>
           <p>Enter your name in the box...</p>
-          <input type="text" /> 
+          <input class="user-name" type="text" /> 
           <span>Final Score:  </span>
           <span class="final-score"></span>
+          <button type="button" id="submitName" class="btn btn-success">Winner Winner</button>
 
+        </div>
+        <div> 
+             <!-- //list of initial & Scores
+            return button to return to start -->
+          <div id="leaderboard-area"  class="hide"> 
+            <h2> High Scores</h2>
+            <ul id="users-scores"> </ul>
+            <button type="button" id="start-over" class="btn btn-success">Start Over</button>
+          </div>
+
+         
         </div>
       </div>
       <div class="col-sm-4">
@@ -45,7 +57,7 @@
           <span class="time-remaining"></span>
         </label>
         <p class="user-score"> Score:</p>
-        <button class="start" type="button" class="btn btn-success-lg">Start Quiz</button>
+        <button class="start"  type="button" class="btn btn-success-lg">Start Quiz</button>
       </div>
     </div>
   </div>

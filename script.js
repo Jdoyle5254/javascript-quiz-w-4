@@ -39,9 +39,13 @@ var answerBtns = document.querySelectorAll(".answerbtn")
 var finalScore = document.querySelector(".final-score")
 var questArea = document.querySelector("#question-area")
 var gameEnds = document.querySelector("#game-over-area")
+var userName = document.querySelector(".user-name")
+var endGameScores = document.querySelector("#users-scores")
+var submitFinal = document.querySelector("#submitName")
+var returnHome = document.querySelector("#start-over")
 var currentQuest = 0;
 var score = 0; 
-var secondsRemaining = 90; 
+var secondsRemaining = 30; 
 
 // array for the questions && answers
 var questions = [{
@@ -110,7 +114,8 @@ var questions = [{
             timeRemainingSection.textContent = secondsRemaining;
        
             if (secondsRemaining <= 0) {
-               clearInterval(timerInterval);   
+               clearInterval(timerInterval);
+               timeRemainingSection.textContent = 0  
                gameOver();
             }
      }, 1000)
@@ -162,9 +167,50 @@ var questions = [{
     // this function will run when the time runs out || questions completed
     function gameOver() {
         questArea.setAttribute("class", "hide");
+        // clearInterval(timerInterval);
         finalScore.textContent = score;
         gameEnds.setAttribute("class", "show");
     }
+
+        function highScore() {
+            
+            var name = userName.value.trim();
+            var userScore = {
+                score: score,
+                name: name
+            };
+            var highScores = [] || JSON.parse(window.localStorage.getItem("highscores"));
+            highScores.push(userScore);
+            window.localStorage.setItem("highscores", JSON.stringify(highScores));
+
+            var gameEnds = document.querySelector("#game-over-area")
+            gameEnds.setAttribute("class", "hide")
+           
+            var leaderBoard = document.querySelector("#leaderboard-area")
+            leaderBoard.removeAttribute("class");
+
+            highScores.forEach(function(score) {
+                var liTag = document.createElement("li")
+                liTag.textContent = score.name
+                var listItem = document.getElementById("users-scores")
+                listItem.appendChild(liTag)
+            })
+        }
+
+        function quizReset () {
+            var leaderBoard = document.querySelector("#leaderboard-area")
+            leaderBoard.setAttribute("class", "hide");
+
+            timeRemainingSection.textContent = " ";
+            currentQuest = 0; 
+            questArea.removeAttribute("class"); 
+            quizQuestions.textContent = "To Begin the quiz click the Start Quiz button on the right. Good Luck!"; 
+            answerOptionA.textContent = ""; 
+            answerOptionB.textContent = "" ;
+            answerOptionC.textContent =  "";
+            userName.value = ""; 
+            secondsRemaining=30; 
+        }
     // this event starts the entire process the time and the quiz 
     startButton.addEventListener('click', startTimer)
     
@@ -172,6 +218,11 @@ var questions = [{
     for (var i = 0; i < answerBtns.length; i++)  {
         answerBtns[i].addEventListener('click', userResponse)
     }
+
+    submitName.addEventListener("click", highScore)
+
+    returnHome.addEventListener("click", quizReset)
+
 
     
  
